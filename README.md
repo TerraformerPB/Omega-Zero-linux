@@ -44,9 +44,18 @@ This repository currently contains the security and architecture foundation. No 
 - `hardware/` – reference-device and Omega hardware specifications
 - `build/` – reproducible build and signing infrastructure
 - `tests/` – security, fuzzing and integration tests
+- `targets/` – virtual and physical device targets
+- `docs/DEVICE_PORTABILITY.md` – hardware-independent platform and device abstraction strategy
+- `docs/MODULE_CATALOG.md` – normative module inventory and implementation priorities
 
 ## Security status
 
 This is a research/development project. Until independent security review, reproducible-build verification and hardware validation are complete, the software must not be treated as a security-certified product.
 
 See [SECURITY.md](SECURITY.md).
+
+## Device Portability
+
+IPOS is designed as a hardware-independent platform with a strict Device Abstraction Layer. Cuttlefish is the virtual development target and the Pixel 8a is the initial physical reference target. Device-specific hardware integration must remain isolated from the platform security core.
+
+See [docs/DEVICE_PORTABILITY.md](docs/DEVICE_PORTABILITY.md) and [docs/MODULE_CATALOG.md](docs/MODULE_CATALOG.md).
