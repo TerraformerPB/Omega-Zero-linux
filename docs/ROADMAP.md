@@ -36,6 +36,24 @@
 - [ ] hardware attestation capability
 - [ ] debug-port policy
 
+### P0.5 Device Portability
+- [ ] Device Abstraction Layer specification
+- [ ] Security Capability Profile schema
+- [ ] target lifecycle and certification states
+- [ ] Cuttlefish target
+- [ ] Pixel 8a target
+- [ ] new-device porting guide
+- [ ] hardware/platform boundary enforcement
+- [ ] multi-target CI
+
+### P0.6 Module Architecture
+- [ ] platform module contracts
+- [ ] device module contracts
+- [ ] cloud/Zero-Trust module contracts
+- [ ] build/supply-chain module contracts
+- [ ] security test module contracts
+- [ ] dependency graph and trust boundaries
+
 ## P1 — Security Core
 
 - [ ] Device Identity
