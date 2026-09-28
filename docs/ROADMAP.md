@@ -1,5 +1,7 @@
 # Omega-Zero / IPOS Roadmap
 
+This roadmap is the single authoritative source for project phases. Other documents reference it.
+
 ## P0 — Foundation
 
 ### P0.1 Architecture
@@ -7,6 +9,9 @@
 - [x] Threat model
 - [x] Trust model
 - [x] Security Codex
+- [x] Licence decision (Apache-2.0)
+- [x] Compliance overview (`docs/COMPLIANCE.md`)
+- [x] Program flowcharts (`docs/FLOWCHARTS.md`)
 - [ ] Formal component inventory
 - [ ] Hardware target decision
 - [ ] Threat-model review
@@ -76,7 +81,7 @@
 - [ ] network policy integration
 - [ ] controlled updates
 
-## P3 — Omega-Zero Gateway
+## P3 — Omega-Zero Gateway & Zero Alpha
 
 - [ ] device enrollment API
 - [ ] device attestation verification
@@ -85,6 +90,12 @@
 - [ ] revocation
 - [ ] audit events
 - [ ] self-hosted deployment
+- [ ] Zero Alpha package format specification (Z-01)
+- [ ] client-side encryption and key hierarchy (Z-02, Z-03)
+- [ ] multi-device and sharing key distribution (Z-04)
+- [ ] Zero Alpha package service – ciphertext only (Z-05)
+- [ ] key recovery without operator access (Z-06)
+- [ ] verification of existing cloud E2E implementation against `CLOUD_DATA_PROTECTION.md`
 
 ## P4 — Control Center
 
@@ -108,6 +119,7 @@
 - [ ] cryptographic wipe
 - [ ] recovery workflow
 - [ ] incident evidence
+- [ ] DLP engine
 
 ## P6 — Applications
 
@@ -138,6 +150,20 @@
 - [ ] production boot keys
 - [ ] device certification
 
+## P9 — Omega-Zero Open Source
+
+- [ ] Zero-Trust gateway release
+- [ ] identity/policy infrastructure
+- [ ] self-hosting guide
+- [ ] infrastructure as code
+
+## P10 — Ecosystem
+
+- [ ] Omega Secure Device
+- [ ] IPOS-verified hardware and services programme
+- [ ] public audits
+- [ ] developer ecosystem
+
 ## Release gates
 
 No production security release before:
@@ -151,3 +177,4 @@ No production security release before:
 8. security test suite
 9. external security review
 10. documented residual risks
+11. legal/compliance review (`docs/COMPLIANCE.md`), incl. CRA conformity and data-protection impact assessment

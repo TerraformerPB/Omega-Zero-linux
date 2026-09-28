@@ -2,7 +2,7 @@
 
 ## 1. Trust hierarchy
 
-Trust must flow upward only from stronger roots to weaker layers.
+Trust is derived only from stronger roots towards weaker layers (top to bottom in the diagram below). A weaker layer can never grant trust to a stronger one.
 
 ~~~text
 Immutable Hardware Root

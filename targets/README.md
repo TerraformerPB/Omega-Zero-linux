@@ -18,6 +18,9 @@ Hardwareabhängige Implementierungen gehören in ein Target und nicht in den har
 ## Target Lifecycle
 
     UNKNOWN → EXPERIMENTAL → LIMITED → TRUSTED → CERTIFIED
+                                  ↘ UNSUPPORTED
+
+Definitionen: siehe `docs/DEVICE_PORTABILITY.md` (Abschnitt „Security Profiles“).
 
 Jedes Target benötigt ein Security Capability Profile.
 

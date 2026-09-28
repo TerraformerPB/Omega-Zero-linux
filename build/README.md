@@ -37,4 +37,6 @@ Compare
 Release signing
 ~~~
 
-The Linux kernel build system documents several sources of non-reproducibility, including timestamps, build host/user data, absolute paths and module signing. These must be controlled explicitly. citeturn0search0
+The Linux kernel build system documents several sources of non-reproducibility, including timestamps, build host/user data, absolute paths and module signing. These must be controlled explicitly.
+
+Reference: [Linux kernel – Reproducible builds](https://docs.kernel.org/kbuild/reproducible-builds.html)

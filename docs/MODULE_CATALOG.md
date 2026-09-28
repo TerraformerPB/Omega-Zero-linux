@@ -113,23 +113,35 @@ Kein Modul darf Sicherheitslogik stillschweigend in ein anderes Modul verschiebe
 | T-12 | Supply Chain |
 | T-13 | Device Portability |
 | T-14 | Hardware Security |
+| T-15 | E2E / Zero Alpha (kein Klartext serverseitig, Schlüsselverlust, Recovery) |
+
+## Zero-Alpha-Module (E2E-Datenpakete)
+
+Details: [`CLOUD_DATA_PROTECTION.md`](CLOUD_DATA_PROTECTION.md).
+
+| ID | Modul | Aufgabe | Ort |
+|---|---|---|---|
+| Z-01 | Package Format | versioniertes, authentifiziertes Containerformat für Zero-Alpha-Pakete | Spezifikation |
+| Z-02 | Client Crypto | Ver-/Entschlüsselung ausschließlich auf dem Gerät | Gerät |
+| Z-03 | Key Hierarchy | Paket-, Benutzer- und Geräteschlüssel, Key Wrapping | Gerät (hardwaregebunden) |
+| Z-04 | Sharing / Multi-Device | Schlüsselverteilung an Geräte und berechtigte Empfänger | Gerät + Cloud (nur Chiffrat) |
+| Z-05 | Package Service | Speicherung, Versionierung, Bereitstellung als Service (nur Chiffrat + minimale Metadaten) | Cloud |
+| Z-06 | Key Recovery | Wiederherstellung ohne Betreiberzugriff auf Klartext | Gerät + Offline-Recovery-Key |
 
 ## Priorisierung
 
-### P0 – Fundament
-P-01, P-02, P-03, P-04, P-14, P-15, P-16, P-17 sowie D-01 bis D-06.
+Die Phasen entsprechen [`ROADMAP.md`](ROADMAP.md).
 
-### P1 – Zero Trust
-P-07, P-08, P-09, P-21, P-22, C-01 bis C-09.
-
-### P2 – Runtime
-P-18, P-19, P-06, P-20.
-
-### P3 – Security Response
-P-11, P-12, P-13, P-24, C-06, C-10.
-
-### P4 – DLP / Advanced Security
-P-10, Privacy Controls, Hardware Tamper, Hardware Kill Switches.
+| Phase | Module |
+|---|---|
+| P0 – Foundation | P-04, P-14, P-15, P-16, P-17, D-01–D-06, B-01–B-10 |
+| P1 – Security Core | P-01, P-02, P-03, P-05, P-06, P-07, P-08, P-11 |
+| P2 – Web Runtime | P-09, P-18, P-19 |
+| P3 – Gateway & Zero Alpha | P-21, P-22, P-23, C-01–C-09, Z-01–Z-06 |
+| P4 – Control Center | P-20 |
+| P5 – Security Response | P-10, P-12, P-13, P-24, C-10, D-16 |
+| P7 – Verification | T-01–T-15 |
+| P8 – Hardware | D-05, Privacy Controls, Hardware Kill Switches |
 
 ## Modulregel
 

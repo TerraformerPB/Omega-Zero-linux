@@ -556,7 +556,7 @@ Lokal bleiben nur notwendige:
 - temporäre Daten
 - notwendige Caches
 
-Persönliche und geschäftskritische Daten liegen primär in der kontrollierten Cloud.
+Persönliche und geschäftskritische Daten liegen primär in der kontrollierten Cloud – **Ende-zu-Ende-verschlüsselt** als Zero-Alpha-Datenpakete. Der Cloud-Betreiber hat keinen Zugriff auf Klartext oder Datenschlüssel (siehe [`CLOUD_DATA_PROTECTION.md`](CLOUD_DATA_PROTECTION.md)).
 
 ---
 
@@ -1017,88 +1017,21 @@ Dazu gehören:
 
 # 44. Entwicklungsphasen
 
-## P0 – Foundation
-- Hardware-Anforderungen
-- Boot Chain
-- Minimal OS
-- Verschlüsselung
-- SELinux
-- Verified Boot
-- Build-System
+Maßgeblich für Phasen, Reihenfolge und Fortschritt ist ausschließlich [`docs/ROADMAP.md`](ROADMAP.md). Die folgende Übersicht ist eine Kurzfassung; bei Abweichungen gilt die Roadmap.
 
-## P1 – Zero Trust Core
-- Device Identity
-- User Identity
-- App Identity
-- Service Identity
-- Policy Engine
-- Network Enforcement
-
-## P2 – IPOS Web Runtime
-- Chromium-Basis
-- Sandbox
-- Web-App-Isolation
-- Permission System
-
-## P3 – Control Center
-- Grundle App
-- Security Dashboard
-- Permissions
-- Network
-- Updates
-- Identity
-
-## P4 – Cloud Integration
-- Device Enrollment
-- mTLS / Identity
-- Zero Trust Gateway
-- Service Authorization
-- Session Management
-
-## P5 – Security Response
-- Tamper Detection
-- Attestation
-- Incident Engine
-- Revocation
-- Emergency Lock
-- Cryptographic Wipe
-
-## P6 – Apps
-- Finance
-- Office
-- Mail
-- Maps
-- ERP
-- weitere IPOS Services
-
-## P7 – Security Audit
-- Penetration Testing
-- Fuzzing
-- Dependency Audit
-- Supply-Chain Audit
-- Reproducible-Build-Verifikation
-- externe Security Reviews
-
-## P8 – Omega Hardware
-- Referenzhardware
-- Secure Element
-- Hardware Root of Trust
-- Privacy Hardware
-- Tamper Detection
-
-## P9 – Omega-Zero Open Source
-- Zero-Trust Gateway
-- Identity Infrastructure
-- Policy Infrastructure
-- Self-hosting
-- Infrastructure as Code
-
-## P10 – Ecosystem
-- Omega Secure Device
-- IPOS Certified Hardware
-- IPOS Certified Services
-- öffentliche Audits
-- Entwickler-Ökosystem
+| Phase | Inhalt | Module (siehe `MODULE_CATALOG.md`) |
+|---|---|---|
+| P0 – Foundation | Architektur, Build/Supply Chain, OS-Basis, Boot Chain, Hardware-Referenz, Device Portability | P-04, P-14–P-17, D-01–D-06, B-01–B-10 |
+| P1 – Security Core | Device/User/App/Service Identity, Policy Engine, Permission Broker, Attestation Client, Session, Network Enforcement, Security Event Model | P-01–P-03, P-05–P-08, P-11 |
+| P2 – Web Runtime | Chromium-Basis, Sandbox, Web-App-Isolation, Datenflusskontrolle zwischen Apps | P-09, P-18, P-19 |
+| P3 – Omega-Zero Gateway & Zero Alpha | Enrollment, Attestation-Verifikation, Service Authorization, kurzlebige Credentials, Revocation, E2E-verschlüsselte Datenpakete (Zero Alpha) | P-21–P-23, C-01–C-09, Z-01–Z-06 |
+| P4 – Control Center | Grundlegende App, Security Dashboard, Permissions, Network, Updates, Identity | P-20 |
+| P5 – Security Response | Tamper Events, Quarantäne, Revocation, Emergency Lock, Cryptographic Wipe, Recovery, DLP | P-10, P-12, P-13, P-24, C-10, D-16 |
+| P6 – Apps | Finance, Office, Mail, Maps, ERP, weitere IPOS Services | – |
+| P7 – Verification | Penetration Testing, Fuzzing, Dependency-/Supply-Chain-Audit, Reproducible-Build-Verifikation, externe Reviews | T-01–T-15 |
+| P8 – Omega Hardware | Referenzhardware, Secure Element, Privacy Hardware, Tamper Detection | D-05, D-16 |
+| P9 – Omega-Zero Open Source | Zero-Trust Gateway, Identity/Policy Infrastructure, Self-Hosting, Infrastructure as Code | C-01–C-10 |
+| P10 – Ecosystem | Omega Secure Device, IPOS-geprüfte Hardware/Services, öffentliche Audits, Entwickler-Ökosystem | – |
 
 ---
 

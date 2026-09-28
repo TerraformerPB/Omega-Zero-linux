@@ -19,9 +19,9 @@ Smartphone security depends on more than a kernel. The platform needs an integra
 - mobile hardware integration
 - update and rollback mechanisms
 
-AOSP already documents and implements mature mechanisms in these areas. Verified Boot establishes a cryptographic chain from hardware root of trust through boot and system partitions, while hardware-backed Keystore/KeyMint can expose attestation information about keys and boot state. citeturn0search1turn0search3
+AOSP already documents and implements mature mechanisms in these areas. Verified Boot establishes a cryptographic chain from hardware root of trust through boot and system partitions, while hardware-backed Keystore/KeyMint can expose attestation information about keys and boot state ([AOSP Verified Boot](https://source.android.com/docs/security/features/verifiedboot), [AOSP Key and ID Attestation](https://source.android.com/docs/security/features/keystore/attestation)).
 
-Linux-native mechanisms such as dm-verity and reproducible kernel builds remain relevant to the foundation. citeturn0search4turn0search0
+Linux-native mechanisms such as dm-verity and reproducible kernel builds remain relevant to the foundation ([dm-verity](https://docs.kernel.org/admin-guide/device-mapper/verity.html), [Linux reproducible builds](https://docs.kernel.org/kbuild/reproducible-builds.html)).
 
 ## Consequence
 

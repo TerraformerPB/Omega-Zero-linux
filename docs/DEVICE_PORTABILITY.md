@@ -13,7 +13,7 @@ IPOS wird nicht als einzelnes, an ein Gerät gebundenes Betriebssystem entwickel
 | Weitere Pixel/Android-Geräte | Portierungsziele | geplant |
 | Omega Hardware | eigenes zertifiziertes Gerät | langfristig |
 
-Cuttlefish ist für AOSP insbesondere deshalb geeignet, weil es Framework-/Plattformcode ohne permanente Abhängigkeit von physischer Hardware testen kann. Die wesentlichen Unterschiede zu realer Hardware liegen laut AOSP vor allem in HALs und hardwarespezifischer Software. citeturn0search0turn0search1
+Cuttlefish ist für AOSP insbesondere deshalb geeignet, weil es Framework-/Plattformcode ohne permanente Abhängigkeit von physischer Hardware testen kann. Die wesentlichen Unterschiede zu realer Hardware liegen laut AOSP vor allem in HALs und hardwarespezifischer Software ([AOSP Cuttlefish](https://source.android.com/docs/devices/cuttlefish)).
 
 ## Architektur
 
@@ -111,12 +111,19 @@ Beispiel:
 
 ## Security Profiles
 
-Ein Gerät erhält einen expliziten Status:
-- UNSUPPORTED
-- EXPERIMENTAL
-- LIMITED
-- TRUSTED
-- CERTIFIED
+Ein Gerät erhält einen expliziten Status (einheitlich mit `targets/README.md`):
+
+    UNKNOWN → EXPERIMENTAL → LIMITED → TRUSTED → CERTIFIED
+                                  ↘ UNSUPPORTED (abgelehnt/ausgemustert)
+
+| Status | Bedeutung |
+|---|---|
+| UNKNOWN | noch nicht bewertet – wird wie nicht vertrauenswürdig behandelt (Fail Closed) |
+| EXPERIMENTAL | Entwicklung, keine Produktivdaten |
+| LIMITED | Teil der `required`-Fähigkeiten nachgewiesen; nur freigegebene Services |
+| TRUSTED | alle `required`-Fähigkeiten nachgewiesen, Security Review bestanden |
+| CERTIFIED | TRUSTED + unabhängige externe Prüfung. **Projektinterner Status**, keine behördliche Zertifizierung (z. B. BSI/Common Criteria) – siehe `docs/COMPLIANCE.md` |
+| UNSUPPORTED | abgelehnt oder nicht mehr unterstützt |
 
 Ein Gerät darf nur mit nachgewiesenen Fähigkeiten auf kritische Services zugreifen.
 
@@ -144,13 +151,13 @@ Ein Gerät darf nur mit nachgewiesenen Fähigkeiten auf kritische Services zugre
 
 Neue Security-Core-Funktionen sollen zuerst auf Cuttlefish implementiert und getestet werden, sofern keine echte Hardwareabhängigkeit besteht.
 
-Cuttlefish unterstützt eigene Gerätekonfigurationen und kann mehrere virtuelle Geräte parallel betreiben, was für reproduzierbare CI-/Integrationstests genutzt werden kann. citeturn0search6turn0search9
+Cuttlefish unterstützt eigene Gerätekonfigurationen und kann mehrere virtuelle Geräte parallel betreiben, was für reproduzierbare CI-/Integrationstests genutzt werden kann ([AOSP Cuttlefish](https://source.android.com/docs/devices/cuttlefish)).
 
 Hardwareabhängige Funktionen werden anschließend auf dem Referenzgerät validiert.
 
 ## Hybrid Testing
 
-Wo sinnvoll soll später geprüft werden, ob Cuttlefish Hybrid Devices eingesetzt werden können. AOSP beschreibt CHDs als Möglichkeit, ein physisches System-Image auf Cuttlefish-HALs zu testen und damit Hardware-unabhängige Systemsoftware früher zu validieren. citeturn0search2
+Wo sinnvoll soll später geprüft werden, ob Cuttlefish Hybrid Devices eingesetzt werden können. AOSP beschreibt CHDs als Möglichkeit, ein physisches System-Image auf Cuttlefish-HALs zu testen und damit Hardware-unabhängige Systemsoftware früher zu validieren (Quelle: AOSP-Dokumentation zu Cuttlefish; genaue Fundstelle bei Umsetzung verifizieren).
 
 ## Ziel
 
