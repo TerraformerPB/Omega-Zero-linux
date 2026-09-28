@@ -35,7 +35,7 @@ This repository currently contains the security and architecture foundation. No 
 ## Repository structure
 
 - `docs/` – architecture, threat model and security specifications
-- `codex/` – normative machine-readable project rules
+- `codex/` – normative project rules (a machine-readable YAML form is planned)
 - `os/` – future IPOS operating-system implementation
 - `security/` – future security-core implementation
 - `network/` – future gateway and network-policy implementation
@@ -48,6 +48,26 @@ This repository currently contains the security and architecture foundation. No 
 - `docs/DEVICE_PORTABILITY.md` – hardware-independent platform and device abstraction strategy
 - `docs/MODULE_CATALOG.md` – normative module inventory and implementation priorities
 
+## Cloud data protection & Zero Alpha
+
+Cloud data is end-to-end encrypted. **Zero Alpha** is the end-to-end encrypted data package of the Omega ecosystem that is offered as a service: the cloud stores and serves only ciphertext and minimal metadata, while decryption happens exclusively on authorized devices.
+
+See [docs/CLOUD_DATA_PROTECTION.md](docs/CLOUD_DATA_PROTECTION.md).
+
+## Documentation
+
+| Document | Content |
+|---|---|
+| [docs/IPOS_SECURITY_ARCHITECTURE.md](docs/IPOS_SECURITY_ARCHITECTURE.md) | overall architecture |
+| [docs/THREAT_MODEL.md](docs/THREAT_MODEL.md) | assets, attackers, trust boundaries |
+| [docs/TRUST_MODEL.md](docs/TRUST_MODEL.md) | trust hierarchy and access decision |
+| [codex/IPOS_SECURITY_CODEX.md](codex/IPOS_SECURITY_CODEX.md) | normative security rules |
+| [docs/ROADMAP.md](docs/ROADMAP.md) | authoritative phase plan |
+| [docs/MODULE_CATALOG.md](docs/MODULE_CATALOG.md) | module inventory |
+| [docs/FLOWCHARTS.md](docs/FLOWCHARTS.md) | program flowcharts (boot, enrollment, access, Zero Alpha, update, response, disclosure, recovery) |
+| [docs/CLOUD_DATA_PROTECTION.md](docs/CLOUD_DATA_PROTECTION.md) | end-to-end encryption and Zero Alpha |
+| [docs/COMPLIANCE.md](docs/COMPLIANCE.md) | German/EU legal overview (licences, CRA, GDPR, BetrVG, …) |
+
 ## Security status
 
 This is a research/development project. Until independent security review, reproducible-build verification and hardware validation are complete, the software must not be treated as a security-certified product.
@@ -59,3 +79,9 @@ See [SECURITY.md](SECURITY.md).
 IPOS is designed as a hardware-independent platform with a strict Device Abstraction Layer. Cuttlefish is the virtual development target and the Pixel 8a is the initial physical reference target. Device-specific hardware integration must remain isolated from the platform security core.
 
 See [docs/DEVICE_PORTABILITY.md](docs/DEVICE_PORTABILITY.md) and [docs/MODULE_CATALOG.md](docs/MODULE_CATALOG.md).
+
+## License
+
+Licensed under the [Apache License, Version 2.0](LICENSE). See [NOTICE](NOTICE).
+
+Third-party components keep their own licenses (e.g. the Linux kernel remains GPL-2.0-only). See [docs/COMPLIANCE.md](docs/COMPLIANCE.md).

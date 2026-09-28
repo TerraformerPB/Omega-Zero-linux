@@ -1,0 +1,8 @@
+Omega-Zero-linux
+Copyright 2026 TerraformerPB and Omega-Zero-linux contributors
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Third-party components integrated in future builds (e.g. Linux kernel under
+GPL-2.0-only, AOSP, Chromium) remain under their respective licenses. Their
+notices will be listed here and in the SBOM of each release.
