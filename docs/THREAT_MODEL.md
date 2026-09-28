@@ -32,7 +32,13 @@ Credentials used by Omega-Zero services and gateways.
 
 ### A4 — Application data
 
-Finance, mail, ERP and other service data.
+Finance, mail, ERP and other service data, stored as end-to-end encrypted Zero Alpha packages (see `CLOUD_DATA_PROTECTION.md`).
+
+Required property: plaintext and data keys exist only on authorized endpoints, never on cloud infrastructure.
+
+### A4a — Data keys
+
+Package, user and device keys for Zero Alpha packages. Loss means data loss; disclosure means data compromise.
 
 ### A5 — Security policy
 
@@ -201,6 +207,32 @@ Controls:
 - A/B rollback
 - key rotation/revocation
 
+### T10 — Cloud operator insider / compelled access
+
+Capabilities:
+- administrative access to cloud storage, databases and backups
+- legal compulsion of the operator (incl. foreign jurisdictions, e.g. US CLOUD Act for US providers)
+- traffic analysis of metadata
+
+Primary controls:
+- end-to-end encryption (RULE-041), no data keys on servers
+- metadata minimization (RULE-042)
+- self-hosting option
+- key transparency / verifiable public-key distribution
+- EU data residency where metadata must be stored
+
+### T11 — Abuse of emergency functions
+
+Capabilities:
+- compromised administrator triggers remote wipe or revocation
+- coercion of the device owner (duress)
+
+Primary controls:
+- multi-party authorization for destructive actions (RULE-043)
+- delay windows and owner notification where safe
+- separate LOCK / REVOKE / DESTROY authorities
+- audit events
+
 ## 5. Trust boundaries
 
 ### TB0 — Hardware ↔ boot chain
@@ -231,6 +263,10 @@ Every service connection requires explicit authorization.
 
 Signing must be isolated from ordinary CI.
 
+### TB7 — Endpoint ↔ Zero Alpha package service
+
+Only ciphertext and documented minimal metadata cross this boundary. The package service is untrusted for confidentiality and integrity of content (integrity is verified on the endpoint).
+
 ## 6. Threat matrix
 
 | Threat | Asset | Control | Detection | Recovery |
@@ -243,6 +279,9 @@ Signing must be isolated from ordinary CI.
 | Malicious update | OS | signed A/B update | verification failure | rollback |
 | Cloud credential abuse | service identity | short-lived scoped credentials | anomaly/policy logs | revoke |
 | Physical debug | device keys | hardware lockdown | boot/attestation | restricted state |
+| Cloud insider / compelled access | A4, A4a | E2E encryption, no server-side keys | access-log anomalies | key rotation, re-encryption |
+| Emergency-function abuse | device, data | multi-party authorization | audit events | recovery |
+| Key loss | A4a | multi-device wrapping, offline recovery key | – | recovery workflow |
 
 ## 7. Security assumptions
 
@@ -256,6 +295,8 @@ The following are explicit assumptions rather than guarantees:
 - zero trust does not prevent every attack; it limits blast radius
 - physical attacks can exceed the threat model
 - availability cannot always be guaranteed
+- end-to-end encryption does not hide metadata
+- a compromised authorized endpoint can read the data it is authorized for
 
 ## 8. Non-goals
 

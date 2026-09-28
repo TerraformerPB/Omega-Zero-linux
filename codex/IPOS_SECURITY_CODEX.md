@@ -1,6 +1,6 @@
 # IPOS SECURITY CODEX
 
-Version: 0.1
+Version: 0.2
 Status: FOUNDATIONAL / NORMATIVE
 
 This document defines mandatory architectural rules for Omega-Zero/IPOS.
@@ -164,3 +164,19 @@ Security mechanisms MUST minimize unnecessary identifiers and collected data.
 ## RULE-040 — SECURITY GATES
 
 A component MUST NOT become part of the production trusted foundation until its defined security gates are satisfied.
+
+## RULE-041 — END-TO-END ENCRYPTION OF CLOUD DATA
+
+User and application data stored in or transferred through Omega cloud services (Zero Alpha packages) MUST be end-to-end encrypted. Encryption and decryption MUST take place only on authorized endpoints. Cloud operators, gateways and administrators MUST NOT hold plaintext or data keys.
+
+## RULE-042 — METADATA MINIMIZATION
+
+Metadata visible to cloud services (size, timestamps, identifiers, access patterns) MUST be documented and minimized, since end-to-end encryption does not protect it.
+
+## RULE-043 — DESTRUCTIVE ACTIONS REQUIRE STRONG AUTHORIZATION
+
+Remote wipe, credential destruction and other irreversible emergency actions MUST require strong authentication and SHOULD require multi-party authorization when triggered by anyone other than the device owner. Every such action MUST produce an audit event.
+
+## RULE-044 — LEGAL COMPLIANCE IS A SECURITY GATE
+
+A production release MUST NOT occur before the obligations listed in `docs/COMPLIANCE.md` (licensing, data protection, Cyber Resilience Act) have been reviewed.
